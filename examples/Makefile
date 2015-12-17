@@ -70,7 +70,7 @@ EXTRALIBS   =
 ifeq ($(OS),)
 EXAMPLES    = unknown
 else
-EXAMPLES    = $(OBJDIR)/lookupdns $(OBJDIR)/proxy $(OBJDIR)/server
+EXAMPLES    = $(OBJDIR)/lookupdns $(OBJDIR)/proxy $(OBJDIR)/server $(OBJDIR)/huge_threads
 endif
 
 
@@ -106,6 +106,9 @@ $(OBJDIR)/proxy: proxy.c $(LIBST) $(HEADER)
 
 $(OBJDIR)/server: server.c $(OBJDIR)/error.o $(LIBST) $(HEADER)
 	$(CC) $(CFLAGS) -I$(INCDIR) server.c $(OBJDIR)/error.o $(LIBST) $(EXTRALIBS) -o $@
+
+$(OBJDIR)/huge_threads: huge_threads.c $(LIBST) $(HEADER)
+	$(CC) $(CFLAGS) -I$(INCDIR) huge_threads.c $(LIBST) $(EXTRALIBS) -o $@
 
 $(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@

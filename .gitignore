@@ -29,7 +29,8 @@
 *.hex
 
 # st
-DARWIN_15.2.0_DBG/
+*_DBG/
+*_OPT/
 obj
 st.pc
 
